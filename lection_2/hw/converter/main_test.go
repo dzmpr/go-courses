@@ -19,14 +19,14 @@ func TestIntegerToRoman(t *testing.T) {
 		{integer: 123, roman: "CXXIII"},
 		{integer: 120, roman: "CXX"},
 	}
-	// TODO Реализовать Калькулятор
+
 	values := []int{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1}
 	symbols := []string{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"}
 	converterInterface := converter.NewConverter(values, symbols)
 
 	for _, test := range cases {
 
-		actualRoman := converterInterface.IntToRoman(test.integer)
+		actualRoman, _ := converterInterface.IntToRoman(test.integer)
 
 		if actualRoman != test.roman {
 			t.Error("Integer:", test.integer,
