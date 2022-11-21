@@ -33,7 +33,3 @@ func NewConverter(values []int, symbols []string) Converter {
 		symbols: symbols,
 	}
 }
-
-func IntToRoman(input int) {
-
-}
