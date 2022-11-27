@@ -26,7 +26,7 @@ func TestIntegerToRoman(t *testing.T) {
 
 	for _, test := range cases {
 
-		actualRoman, _ := converterInterface.IntToRoman(test.integer)
+		actualRoman := converterInterface.IntToRoman(test.integer)
 
 		if actualRoman != test.roman {
 			t.Error("Integer:", test.integer,

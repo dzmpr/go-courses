@@ -1,8 +1,6 @@
 package converter
 
-import (
-	"strings"
-)
+import "strings"
 
 type converterImpl struct {
 	symbols []string
@@ -10,21 +8,22 @@ type converterImpl struct {
 }
 
 type Converter interface {
-	IntToRoman(input int) (string, error)
+	IntToRoman(input int) string
 }
 
-func (impl *converterImpl) IntToRoman(num int) (string, error) {
+// IntToRoman Converts given int number to string with roman representation
+func (c *converterImpl) IntToRoman(num int) string {
 	var res strings.Builder
 
-	for i, val := range impl.values {
+	for i, val := range c.values {
 		if num >= val {
 			var count int = num / val
-			res.WriteString(strings.Repeat(impl.symbols[i], count))
+			res.WriteString(strings.Repeat(c.symbols[i], count))
 			num -= count * val
 		}
 	}
 
-	return res.String(), nil
+	return res.String()
 }
 
 func NewConverter(values []int, symbols []string) Converter {
